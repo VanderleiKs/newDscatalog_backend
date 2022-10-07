@@ -29,8 +29,6 @@ public class CategoryController {
 	private CategoryService service;
 
 	@GetMapping
-	
-	
 	public ResponseEntity<Page<CategoryDTO>> findAll(
 			@RequestParam(value = "page", defaultValue = "0") Integer page,
 			@RequestParam(value = "lineaPerPage", defaultValue = "12") Integer linesPerPage,
