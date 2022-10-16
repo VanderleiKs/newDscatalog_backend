@@ -7,24 +7,27 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
+@Table(name = "tb_user")
 public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String firsName;
+    private String firstName;
     private String lastName;
     private String email;
     private String password;
 
-    @OneToMany
-    private final Set<Role> roles = new HashSet<>();
+    @ManyToMany
+    @JoinTable(name = "tb_user_role",
+            joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    Set<Role> roles = new HashSet<>();
 
     public User() {
     }
 
     public User(Long id, String firsName, String lastName, String email, String password) {
         this.id = id;
-        this.firsName = firsName;
+        this.firstName = firsName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
@@ -35,11 +38,11 @@ public class User implements Serializable {
     }
 
     public String getFirsName() {
-        return firsName;
+        return firstName;
     }
 
     public void setFirsName(String firsName) {
-        this.firsName = firsName;
+        this.firstName = firsName;
     }
 
     public String getLastName() {

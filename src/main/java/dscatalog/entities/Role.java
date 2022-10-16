@@ -1,17 +1,21 @@
 package dscatalog.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
+
 @Entity
+@Table(name = "tb_role")
 public class Role implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String authority;
+
+    @ManyToMany(mappedBy = "roles")
+    Set<User> users = new HashSet<>();
 
     public Role(){}
 
@@ -30,6 +34,10 @@ public class Role implements Serializable {
 
     public void setAuthority(String authority) {
         this.authority = authority;
+    }
+
+    public Set<User> getUsers() {
+        return users;
     }
 
     @Override

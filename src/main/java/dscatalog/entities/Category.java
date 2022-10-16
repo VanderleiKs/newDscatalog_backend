@@ -26,7 +26,7 @@ public class Category implements Serializable {
     private Instant updateAt;
 
     @ManyToMany(mappedBy = "categories")
-    private final Set<Product> products = new HashSet<>();
+    Set<Product> products = new HashSet<>();
 
     public Category() {
     }
