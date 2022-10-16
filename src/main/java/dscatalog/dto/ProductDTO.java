@@ -6,9 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import dscatalog.Autor;
 import dscatalog.entities.Category;
 import dscatalog.entities.Product;
 
+@Autor(name = "Vanderlei")
 public class ProductDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
