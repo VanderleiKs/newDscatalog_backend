@@ -1,5 +1,6 @@
 package dscatalog.dto;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ import dscatalog.entities.Product;
 
 @Autor(name = "Vanderlei")
 public class ProductDTO implements Serializable {
+	@Serial
 	private static final long serialVersionUID = 1L;
 	
 	private Long id;
@@ -20,7 +22,7 @@ public class ProductDTO implements Serializable {
 	private Double price;
 	private String imgUrl;
 	private Instant date;
-	private List<CategoryDTO> categories = new ArrayList<>();
+	private final List<CategoryDTO> categories = new ArrayList<>();
 	
 	public ProductDTO() {}
 

@@ -1,10 +1,12 @@
 package dscatalog.dto;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import dscatalog.entities.Category;
 
 public class CategoryDTO implements Serializable {
+	@Serial
 	private static final long serialVersionUID = 1L;
 	
 	private Long id;
