@@ -2,6 +2,7 @@ package dscatalog.dto;
 
 import dscatalog.entities.Role;
 
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 /**
@@ -9,6 +10,7 @@ import java.io.Serializable;
  */
 public class RoleDTO implements Serializable {
     private Long id;
+    @NotBlank(message = "Required field")
     private String authority;
 
     public RoleDTO() {

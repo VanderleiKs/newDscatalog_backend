@@ -11,16 +11,22 @@ import dscatalog.Autor;
 import dscatalog.entities.Category;
 import dscatalog.entities.Product;
 
+import javax.validation.constraints.*;
+
 @Autor(name = "Vanderlei")
 public class ProductDTO implements Serializable {
 	@Serial
 	private static final long serialVersionUID = 1L;
 	
 	private Long id;
+	@NotBlank(message = "Required field")
+	@Size(min = 3, max = 100)
 	private String name;
 	private String description;
+	@Positive(message = "Field must contain positive value")
 	private Double price;
 	private String imgUrl;
+	@PastOrPresent(message = "Date must be in present or past, not future")
 	private Instant date;
 	private final List<CategoryDTO> categories = new ArrayList<>();
 	

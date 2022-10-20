@@ -5,11 +5,14 @@ import java.io.Serializable;
 
 import dscatalog.entities.Category;
 
+import javax.validation.constraints.NotBlank;
+
 public class CategoryDTO implements Serializable {
 	@Serial
 	private static final long serialVersionUID = 1L;
 	
 	private Long id;
+	@NotBlank(message = "Required field")
 	private String name;
 
 	public CategoryDTO() {}
